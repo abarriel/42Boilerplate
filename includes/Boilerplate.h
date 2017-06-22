@@ -12,16 +12,31 @@
 
 #ifndef BOILERPLATE_H
 # define BOILERPLATE_H
-
+# define PROGNAMELENGTH 50
+# define AUTHOR 20
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <sys/stat.h>
+# include "limits.h"
+# include <stdlib.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <sys/wait.h>
+# include <dirent.h>
+# include <fcntl.h>
+# include <signal.h>
+# include <time.h>
 
 typedef struct	s_env
 {
-	char		*author;
-	char		*project_name;
+	char		author[50];
+  char		project_name[20];
+  int     project_type;
 }				t_env;
 
-void	get_author(t_env *env);
-void	get_project_name(t_env *env);
+void builder(t_env *e);
+int getter(t_env *env);
 
 #endif
